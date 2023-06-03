@@ -102,7 +102,7 @@
             })
         }), t("#ajax-alert").click(function() {
             swal({
-                title: "Submit email to run ajax request",
+                title: "Masukan alamat email tujuan:",
                 input: "email",
                 showCancelButton: !0,
                 confirmButtonText: "Submit",
@@ -120,8 +120,8 @@
             }).then(function(t) {
                 swal({
                     type: "success",
-                    title: "Ajax request finished!",
-                    html: "Submitted email: " + t
+                    title: "Undangan bergabung berhasil dikirim!",
+                    // html: "Submitted email: " + t
                 })
             })
         }), t("#chaining-alert").click(function() {
