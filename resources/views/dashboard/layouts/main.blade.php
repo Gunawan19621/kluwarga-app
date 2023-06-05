@@ -187,14 +187,14 @@
 
 
 
-            //Keuangan belum
+            //Keuangan
             $('a.keuangan').click(function() {
                 // Menambahkan
                 $('a[href="#role-5"]').addClass('active');
                 $('#role-5').addClass('active');
                 $('div.isi-keuangan').empty();
                 $('div.isi-keuangan').append(
-                    '<h4>Halaman Keuangan untuk admin</h4>'
+                    '<div class="tab-pane p-3 isi-keuangan" id="role-5" role="tabpanel"><div class="card"><div class="card-body"><div class="justify-content-between"><div class="row"><div class="col-4"><h4 class="mt-0 d-inline-block">Input Laporan Keuangan</h4></div><div class="col-8"><div class="d-flex justify-content-end px-3 py-3 mb-0"><div class="border-right mr-1"><a href="{{ route('akun-keuangan.index') }}" class="btn btn-outline-info btn-sm mr-2 mt-1">Edit Akun Keuangan</a></div><i class="mdi mdi-calendar-today mr-2" style="font-size: 30px"></i><select class="form-control w-25 mr-2"><option>Tahun</option><option>Tahun 1</option><option>Tahun 2</option></select><div></div></div></div></div></div><caption><strong><i>*Input laporan keuangan dapat menekan bulan yang dituju</i></strong></caption><hr><div class="table-responsive"><table id="table" class="table table-hover table-bordered table table-sm"><thead><tr><th style="width: 210px">Saldo Awal Kas & Bank</th><th class="text-success" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Jan</th><th class="text-danger" data-toggle="modal" style="cursor: pointer"data-target="#keuangan-edit-input">Feb</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Mar</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Apr</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Mei</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Jun</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Jul</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Agt</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Sep</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Okt</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Nov</th><th class="text-danger" data-toggle="modal" style="cursor: pointer" data-target="#keuangan-edit-input">Des</th></tr></thead><tbody><tr><td>101 Bank BCA</td><td>200000</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Total Saldo Awal Kas & Bank</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody></table></div><div class="table-responsive"><table id="table" class="table table-hover table-bordered table table-sm"><thead><tr><th style="width: 210px">Pemasukan</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>Mei</th><th>Jun</th><th>Jul</th><th>Agt</th><th>Sep</th><th>Okt</th><th>Nov</th><th>Des</th></tr></thead><tbody><tr><td>Iuran Wajib</td><td>200000</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Total Pemasukan</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody></table></div><div class="table-responsive"><table id="table" class="table table-hover table-bordered table table-sm"><thead><tr><th style="width: 210px">Pengeluaran</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>Mei</th><th>Jun</th><th>Jul</th><th>Agt</th><th>Sep</th><th>Okt</th><th>Nov</th><th>Des</th></tr></thead><tbody><tr><td>Biaya Operasional</td><td>200000</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Total Total Pengeluaran</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody></table></div></div></div></div>'
                 );
                 // Menghapus
                 $('a[href="#role-1"]').removeClass('active');
@@ -277,7 +277,105 @@
 
         });
     </script>
+    <script>
+        $(function() {
+            $("#select-iuran").change(function() {
+                var iuran = $(this).val();
+                var isAdded = false;
+                if (iuran === "lainnya" && !isAdded) {
+                    isAdded = true;
+                    $("#select-iuran").after(
+                        '<div class="form-group" id="tambah_iuran">' +
+                        '<form method="POST" action="">' +
+                        '@csrf' +
+                        '<label for="nama_iuran" class="col-form-label">Tambah Nama Iuran</label>' +
+                        '<div class="mb-2">' +
+                        ' <input class="form-control" name="nama_iuran" type="text" id="nama_iuran"' +
+                        'value="{{ old('nama_iuran') }}">' +
+                        '</div>' +
+                        '<button type="submit" class="btn btn-sm btn-success">Simpan</button>' +
+                        '</form>' +
+                        '</div>'
+                    );
+                } else {
+                    $("#tambah_iuran").remove();
+                    isAdded = false;
+                }
+            });
 
+            $("#select-periode").change(function() {
+                var periode = $(this).val();
+                var isAdded = false;
+                if (periode === "lainnya" && !isAdded) {
+                    isAdded = true;
+                    $("#select-periode").after(
+                        '<div class="form-group" id="tambah_periode">' +
+                        '<form method="POST" action="">' +
+                        '@csrf' +
+                        '<label for="nama_periode" class="col-form-label">Tambah Nama Periode</label>' +
+                        '<div class="mb-2">' +
+                        ' <input class="form-control" name="nama_periode" type="text" id="nama_periode"' +
+                        'value="{{ old('nama_periode') }}">' +
+                        '</div>' +
+                        '<button type="submit" class="btn btn-sm btn-success">Simpan</button>' +
+                        '</form>' +
+                        '</div>'
+                    );
+                } else {
+                    $("#tambah_periode").remove();
+                    isAdded = false;
+                }
+            });
+
+            $("#select-jenis").change(function() {
+                var jenis = $(this).val();
+                var isAdded = false;
+                if (jenis === "lainnya" && !isAdded) {
+                    isAdded = true;
+                    $("#select-jenis").after(
+                        '<div class="form-group" id="tambah_jenis">' +
+                        '<form method="POST" action="">' +
+                        '@csrf' +
+                        '<label for="nama_jenis" class="col-form-label">Tambah Nama Jenis</label>' +
+                        '<div class="mb-2">' +
+                        ' <input class="form-control" name="nama_jenis" type="text" id="nama_jenis"' +
+                        'value="{{ old('nama_jenis') }}">' +
+                        '</div>' +
+                        '<button type="submit" class="btn btn-sm btn-success">Simpan</button>' +
+                        '</form>' +
+                        '</div>'
+                    );
+                } else {
+                    $("#tambah_jenis").remove();
+                    isAdded = false;
+                }
+            });
+
+            $("#select-penanggungjawab").change(function() {
+                var penanggungjawab = $(this).val();
+                var isAdded = false;
+                if (penanggungjawab === "lainnya" && !isAdded) {
+                    isAdded = true;
+                    $("#select-penanggungjawab").after(
+                        '<div class="form-group" id="tambah_penanggungjawab">' +
+                        '<form method="POST" action="">' +
+                        '@csrf' +
+                        '<label for="nama_penanggungjawab" class="col-form-label">Tambah Nama Penanggung Jawab</label>' +
+                        '<div class="mb-2">' +
+                        ' <input class="form-control" name="nama_penanggungjawab" type="text" id="nama_penanggungjawab"' +
+                        'value="{{ old('nama_penanggungjawab') }}">' +
+                        '</div>' +
+                        '<button type="submit" class="btn btn-sm btn-success">Simpan</button>' +
+                        '</form>' +
+                        '</div>'
+                    );
+                } else {
+                    $("#tambah_penanggungjawab").remove();
+                    isAdded = false;
+                }
+            });
+        });
+    </script>
 </body>
 <!-- Mirrored from themesbrand.com/amezia/vertical/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Sep 2018 09:33:55 GMT -->
 

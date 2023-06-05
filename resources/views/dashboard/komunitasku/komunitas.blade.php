@@ -50,11 +50,11 @@
                                             data-toggle="modal">Rumah</a>
                                         <a class="dropdown-item warga" href="javascript:void(0);"
                                             data-toggle="modal">Warga</a>
-                                        <a class="dropdown-item" href="{{ route('pengurus.index') }}">Pengurus</a>
                                         <a class="dropdown-item iuran" href="javascript:void(0);"
                                             data-toggle="modal">Iuran</a>
+                                        <a class="dropdown-item" href="{{ route('pengurus.index') }}">Pengurus</a>
                                         <a class="dropdown-item keuangan" href="javascript:void(0);"
-                                            data-toggle="modal">Keuangan</a>
+                                            data-toggle="dropdown">Keuangan</a>
                                         <a class="dropdown-item surat" href="javascript:void(0);"
                                             data-toggle="modal">Surat</a>
                                         <a class="dropdown-item"
@@ -429,7 +429,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Tab panel keuangan belum agak susah-->
+                                    <!-- Tab panel keuangan-->
                                     <div class="tab-pane p-3 isi-keuangan" id="role-5" role="tabpanel">
                                         <div class="card">
                                             <div class="card-body">
@@ -440,12 +440,6 @@
                                                         </div>
                                                         <div class="col-8">
                                                             <div class="d-flex justify-content-end px-3 py-3 mb-0">
-                                                                <div class="border-right mr-1">
-                                                                    <button type="button"
-                                                                        class="btn btn-outline-info btn-sm mr-2 mt-1"
-                                                                        onclick="location.href='{{ route('akun-keuangan.index') }}'">Edit
-                                                                        Akun Keuangan</button>
-                                                                </div>
                                                                 <i class="mdi mdi-calendar-today mr-2"
                                                                     style="font-size: 30px"></i>
                                                                 <select class="form-control w-25 mr-2">
@@ -454,41 +448,21 @@
                                                                     <option>Tahun 2</option>
                                                                 </select>
                                                                 <div>
-                                                                    {{-- <button type="Update" class="btn btn-primary mr-2"
-                                                                        data-toggle="modal"
-                                                                        data-target="#keuangan-edit-input">
-                                                                        <i class="mdi mdi-border-color mr-2"></i>Edit/Input
-                                                                    </button> --}}
-                                                                    <button type="Update"
-                                                                        class="btn btn-light dropdown-toggle"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false"><i
-                                                                            class="dripicons-trash"></i></button>
-                                                                    <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="#">Hapus
-                                                                            Semua</a>
-                                                                        <a class="dropdown-item" href="#">Hapus
-                                                                            Terpilih</a>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <caption><strong><i>*Input laporan keuangan dapat menekan bulan yang
-                                                            dituju</i></strong></caption>
                                                 <hr>
+                                                <!-- tabel saldo awal kas dan bank -->
                                                 <div class="table-responsive">
-                                                    <table id="mainTable" class="table table-hover mb-0">
-                                                        <thead class="thead-default">
+                                                    <table id="table"
+                                                        class="table table-hover table-bordered table table-sm">
+                                                        <thead>
                                                             <tr>
-                                                                <th>Akun belum ditentukan</th>
-                                                                <th class="text-success" data-toggle="modal"
-                                                                    style="cursor: pointer"
-                                                                    data-target="#keuangan-edit-input">Jan</th>
-                                                                <th class="text-danger" data-toggle="modal"
-                                                                    style="cursor: pointer"
-                                                                    data-target="#keuangan-edit-input">Feb</th>
+                                                                <th style="width: 210px">Saldo Awal Kas & Bank</th>
+                                                                <th>Jan</th>
+                                                                <th>Feb</th>
                                                                 <th>Mar</th>
                                                                 <th>Apr</th>
                                                                 <th>Mei</th>
@@ -502,9 +476,9 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            {{-- baris 1 --}}
+                                                            <!-- baris 1 -->
                                                             <tr>
-                                                                <td>-</td>
+                                                                <td>101 Bank BCA</td>
                                                                 <td>200000</td>
                                                                 <td>-</td>
                                                                 <td>-</td>
@@ -518,9 +492,9 @@
                                                                 <td>-</td>
                                                                 <td>-</td>
                                                             </tr>
-                                                            {{-- baris 2 --}}
+                                                            <!-- baris 2 -->
                                                             <tr>
-                                                                <td>-</td>
+                                                                <td>Total Saldo Awal Kas & Bank</td>
                                                                 <td>-</td>
                                                                 <td>-</td>
                                                                 <td>-</td>
@@ -537,8 +511,123 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <hr>
-                                                <button type="submit" class="btn btn-info px-4 float-right">EDIT</button>
+
+                                                <!-- tabel Pemasukan -->
+                                                <div class="table-responsive">
+                                                    <table id="table"
+                                                        class="table table-hover table-bordered table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 210px">Pemasukan</th>
+                                                                <th>Jan</th>
+                                                                <th>Feb</th>
+                                                                <th>Mar</th>
+                                                                <th>Apr</th>
+                                                                <th>Mei</th>
+                                                                <th>Jun</th>
+                                                                <th>Jul</th>
+                                                                <th>Agt</th>
+                                                                <th>Sep</th>
+                                                                <th>Okt</th>
+                                                                <th>Nov</th>
+                                                                <th>Des</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- baris 1 -->
+                                                            <tr>
+                                                                <td>Iuran Wajib</td>
+                                                                <td>200000</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <!-- baris 2 -->
+                                                            <tr>
+                                                                <td>Total Pemasukan</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <!-- tabel Pengeluaran -->
+                                                <div class="table-responsive">
+                                                    <table id="table"
+                                                        class="table table-hover table-bordered table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 210px">Pengeluaran</th>
+                                                                <th>Jan</th>
+                                                                <th>Feb</th>
+                                                                <th>Mar</th>
+                                                                <th>Apr</th>
+                                                                <th>Mei</th>
+                                                                <th>Jun</th>
+                                                                <th>Jul</th>
+                                                                <th>Agt</th>
+                                                                <th>Sep</th>
+                                                                <th>Okt</th>
+                                                                <th>Nov</th>
+                                                                <th>Des</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- baris 1 -->
+                                                            <tr>
+                                                                <td>Biaya Operasional</td>
+                                                                <td>200000</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <!-- baris 2 -->
+                                                            <tr>
+                                                                <td>Total Total Pengeluaran</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -734,6 +823,27 @@
             </div>
         </div>
     </div>
+    <style>
+        .dropdown-menu li {
+            position: relative;
+        }
+
+        .dropdown-menu .dropdown-submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: -7px;
+        }
+
+        .dropdown-menu .dropdown-submenu-left {
+            right: 100%;
+            left: auto;
+        }
+
+        .dropdown-menu>li:hover>.dropdown-submenu {
+            display: block;
+        }
+    </style>
     {{-- Kumpulan Modals --}}
     @include('dashboard.komunitasku.popup')
 @endsection

@@ -544,136 +544,166 @@
 </div> --}}
 {{-- End Modal Keuangan Edit/Input --}}
 
-{{-- Edit keuangan berdasarkan bulan --}}
+{{-- Edit keuangan berdasarkan bulan Di pake --}}
 <div class="modal fade" id="keuangan-edit-input" tabindex="-1" role="dialog" aria-labelledby="popupModalLabel"
     aria-hidden="true">
     <div class="modal-dialog ml-auto modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="col-12">
-                    <div class="card bg-transparent shadow-none">
-                        <div class="card-body">
-                            <div class="">
-                                <table class="table table-bordered mb-0">
-                                    <thead>
-                                        <tr>
-                                            <h5>Saldo Awal Kas & Bank</h5>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="rom-group border-0">
-                                                    <input type="text"
-                                                        style="border: none;
-                                                    ">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="rom-group">
-                                                    <input type="text"
-                                                        style="border: none;
-                                                    ">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="rom-group border-0">
-                                                    <input type="text"
-                                                        style="border: none;
-                                                    ">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="rom-group">
-                                                    <input type="text"
-                                                        style="border: none;
-                                                    ">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="rom-group border-0">
-                                                    <input type="text"
-                                                        style="border: none;
-                                                    ">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="rom-group">
-                                                    <input type="text"
-                                                        style="border: none;
-                                                    ">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                <h4>INPUT LAPORAN KEUANGAN</h4>
+                <form action="">
+                    <div class="mb-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input class="form-control" style="height: 30px;" name="tahun"
+                                            type="text" readonly id="tahun" value="2023">
+                                        <label for="tahun"><i>Tahun</i></label>
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" style="height: 30px;" name="bulan"
+                                            type="text" readonly id="bulan" value="Januari">
+                                        <label for="bulan"><i>Bulan</i></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <button type="button" class="btn btn-gray px-4 float-right ">Nanti Saja</button>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <h5>Saldo Awal Kas & Bank</h5>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="rom-group border-0">
+                                        101 Bank BCA
+                                    </div>
+                                </td>
+                                <td style="width: 50%">
+                                    <div class="rom-group">
+                                        <input type="text"
+                                            style="border: none;
+                                            ">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50%">
+                                    <div class="rom-group border-0">
+                                        <strong>Total Saldo awal & Bank</strong>
+                                    </div>
+                                </td>
+                                <td style="width: 50%">
+                                    <div class="rom-group">
+                                        <input type="text"
+                                            style="border: none;
+                                            ">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <h5>Pemasukan</h5>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 50%">
+                                    <div class="rom-group border-0">
+                                        Iuran Wajib
+                                    </div>
+                                </td>
+                                <td style="width: 50%">
+                                    <div class="rom-group">
+                                        <input type="text"
+                                            style="border: none;
+                                            ">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50%">
+                                    <div class="rom-group border-0">
+                                        <strong>Total Pemasukan</strong>
+                                    </div>
+                                </td>
+                                <td style="width: 50%">
+                                    <div class="rom-group">
+                                        <input type="text"
+                                            style="border: none;
+                                            ">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <h5>Pengeluaran</h5>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width: 50%">
+                                    <div class="rom-group border-0">
+                                        Biaya Operasional
+                                    </div>
+                                </td>
+                                <td style="width: 50%">
+                                    <div class="rom-group">
+                                        <input type="text"
+                                            style="border: none;
+                                            ">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50%">
+                                    <div class="rom-group border-0">
+                                        <strong>Total Pengeluaran</strong>
+                                    </div>
+                                </td style="width: 50%">
+                                <td>
+                                    <div class="rom-group">
+                                        <input type="text"
+                                            style="border: none;
+                                            ">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+                {{-- <div class="col-12">
+                    <div class="card bg-transparent shadow-none">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div> --}}
+                <button type="button" class="btn btn-gray px-4 float-right close" data-dismiss="modal"
+                    aria-label="Close">Nanti Saja</button>
                 <button type="submit" class="btn btn-success px-4 float-right mr-3"
-                    onclick="location.href='{{ route('akun-keuangan.index') }}'">OK</button>
+                    onclick="location.href='{{ route('komunitas.index') }}'">OK</button>
             </div>
         </div>
     </div>
 </div>
 {{-- EndEdit keuangan berdasarkan bulan --}}
 
-{{-- Tambah akun keuangan --}}
-<div class="modal fade" id="tambah-keuangan-edit-input" tabindex="-1" role="dialog"
-    aria-labelledby="popupModalLabel" aria-hidden="true">
-    <div class="modal-dialog ml-auto modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title ml-auto text-success text-center" id="exampleModalLongTitle">Tambah Akun
-                    Keuangan</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <form action="">
-                            <div class="form-group">
-                                <label>Grup Akun</label>
-                                <div>
-                                    <select class="form-control">
-                                        <option>Select</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Kode Akun</label>
-                                <div>
-                                    <input class="form-control" type="text" name="" id="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Nama Akun</label>
-                                <div>
-                                    <input class="form-control" type="text" name="" id="">
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <button class="btn btn-danger" type="button">Batal</button>
-                                <button class="btn btn-success" type="submit">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- End Tambah akun keuangan --}}
+
+
+
 {{-- Modals Hapus data rumah --}}
 <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
     aria-hidden="true">
