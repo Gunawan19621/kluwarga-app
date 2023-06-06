@@ -14,7 +14,7 @@
                             </div>
                             <div>
                                 <button type="button" class="btn btn-danger mr-2" id="ajax-alert">Undang via email</button>
-                                <button type="Update" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
                                     onclick="tambahElement()">+ Tambah</button>
                             </div>
                         </div>
