@@ -2,48 +2,76 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rumah;
 use App\Models\Warga;
-use Illuminate\Http\Request;
-use Termwind\Components\Dd;
+use App\Models\Komunitas;
+use App\Http\Requests\StoreWargaRequest;
+use App\Http\Requests\UpdateWargaRequest;
 
 class WargaController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $warga = Warga::all();
-        return view('warga.index', compact(['warga']));
+        // $komunitas = Komunitas::query()->latest()->first();
+        // $rumah = Rumah::query()->latest()->first();
+        // return view('dashboard.komunitasku.komunitas_warga.warga-admin', compact('komunitas', 'rumah'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('warga.create');
+        //
     }
 
-    public function store(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreWargaRequest $request)
     {
-        // dd($request->except('_token', 'submit'));
-        Warga::create($request->except('_token', 'submit'));
-        return redirect('/warga');
+        $validated = $request->validated();
+        try {
+            Warga::create($validated);
+            // dd($validated);
+            return to_route('iuranKomunitas.index')->with('success', 'Data rumah berhasil ditambah.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data rumah gagal ditambah.');
+        }
     }
 
-    public function edit($id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(Warga $warga)
     {
-        $warga = Warga::find($id);
-        // dd($warga);
-        return view('warga.edit', compact(['warga']));
+        //
     }
 
-    public function update($id, Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Warga $warga)
     {
-        $warga = Warga::find($id);
-        $warga->update($request->except('_token', 'submit'));
-        return redirect('/warga');
+        //
     }
 
-    public function destroy($id)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateWargaRequest $request, Warga $warga)
     {
-        $warga = Warga::find($id);
-        $warga->delete();
-        return redirect('/warga');
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Warga $warga)
+    {
+        //
     }
 }

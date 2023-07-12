@@ -96,12 +96,12 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLongTitle"> Jalan Berlubang</h4>
+                    <h4 class="modal-title ml-auto text-success" id="exampleModalLongTitle"> Jalan Berlubang</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body ml-3 mb-3">
                     <p>Isi Pesan :</p>
                     <h4>Siang Pak RT, jalan di Jln. Merak sudah rusak parah dan berlubang. Mohon segera di perbaiki.</h4>
                     <div class="row">

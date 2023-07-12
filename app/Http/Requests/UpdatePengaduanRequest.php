@@ -11,7 +11,7 @@ class UpdatePengaduanRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class UpdatePengaduanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'tanggapan_pengaduan' => 'required|string|max:255'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'tanggapan_pengaduan.required' => 'Tanggapan pengaduan tidak boleh kosong.',
+            'tanggapan_pengaduan.string' => 'Tanggapan pengaduan harus berupa string.',
+            'tanggapan_pengaduan.max' => 'Tanggapan pengaduan maksimal 255 karakter.'
         ];
     }
 }

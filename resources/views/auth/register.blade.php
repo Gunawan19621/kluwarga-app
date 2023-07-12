@@ -42,6 +42,24 @@
                                         <span class="text-danger" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
+
+                                <div class="form-group text-light">
+                                    <label for="password">Password<span class="text-danger">*</span></label>
+                                    <input type="password" name="password" class="form-control" id="password" required
+                                        autofocus>
+                                    @error('password')
+                                        <span class="text-danger" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group text-light">
+                                    <label for="retry_password">Rery Password<span class="text-danger">*</span></label>
+                                    <input type="password" name="retry_password" class="form-control" id="retry_password"
+                                        required autofocus>
+                                    @error('retry_password')
+                                        <span class="text-danger" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
                                 <button type="submit" class="btn-small text-white btn-success col-3 float-right">
                                     Sign Up</button>
                                 <br>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengurus;
+use App\Models\Komunitas;
 use App\Http\Requests\StorePengurusRequest;
 use App\Http\Requests\UpdatePengurusRequest;
 
@@ -13,7 +14,9 @@ class PengurusController extends Controller
      */
     public function index()
     {
-        return view('dashboard.komunitasku.pengurus');
+        $komunitas = Komunitas::get();
+        $getKomunitas = Komunitas::findOrFail(request('komunitas_id'));
+        return view('dashboard.komunitas.komunitas_admin.pengurus-', compact('komunitas', 'getKomunitas'));
     }
 
     /**

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -21,9 +22,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
+    //Update informasi akun
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
@@ -34,27 +33,34 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('pengaturan.index')->with('success-informasi', 'Informasi akun berhasil diperbarui.');
+    }
+
+
+    /**
+     * Update the user's profile information foto.
+     */
+    public function updatePhoto(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        if ($request->hasFile('foto')) {
+            // Mengunggah file foto profil
+            $file = $request->file('foto');
+            $foto = $file->store('profile-fotos');
+            $user->update(['foto' => $foto]);
+        }
+
+        // Logika lain yang diperlukan setelah update foto profil
+        return redirect()->back()->with('success', 'Foto profil berhasil diperbarui.');
     }
 
     /**
-     * Delete the user's account.
+     * Delete the user's profile information foto.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function deletePhoto()
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        $user = User::find(auth()->user()->id);
+        $user->update(['foto' => null]);
+        return redirect()->back()->with('success', 'Foto profil berhasil dihapus.');
     }
 }

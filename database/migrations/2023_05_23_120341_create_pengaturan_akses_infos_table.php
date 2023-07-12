@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pengaturan_akses_infos', function (Blueprint $table) {
             $table->id();
+            $table->mediumText('pertanyaan');
+            $table->string('aksi');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Komunitas;
+use Illuminate\Http\Request;
 use App\Models\PengaturanKomunitas;
 use App\Http\Requests\StorePengaturanKomunitasRequest;
 use App\Http\Requests\UpdatePengaturanKomunitasRequest;
@@ -13,7 +15,11 @@ class PengaturanKomunitasController extends Controller
      */
     public function index()
     {
-        return view('dashboard.komunitasku.pengaturan-komunitas');
+        $komunitas = Komunitas::get();
+        $getKomunitas = Komunitas::findOrFail(request('komunitas_id'));
+        $pengaturanKomunitas = PengaturanKomunitas::all();
+        $data = $pengaturanKomunitas->pluck('aksi', 'pertanyaan')->all();
+        return view('dashboard.komunitasku.komunitas_pengaturan.pengaturan-admin', compact('data', 'komunitas', 'getKomunitas'));
     }
 
     /**
@@ -27,9 +33,26 @@ class PengaturanKomunitasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePengaturanKomunitasRequest $request)
+    public function store(Request $request)
     {
-        //
+        $pertanyaan = $request->input('pengaturan');
+        $kom = $request->input('komunitas');
+        // Simpan semua pertanyaan
+        foreach ($pertanyaan as $item) {
+            PengaturanKomunitas::updateOrCreate(
+                [
+                    'pengguna_id' => 1,
+                    'komunitas_id' => $kom, // '1' adalah id komunitas 'Komunitas Admin
+                    'pertanyaan' => $item['pengaturan'],
+                ],
+                [
+                    'aksi' => $item['jawaban'],
+                ]
+            );
+        }
+        // Berikan respons atau lakukan tindakan lainnya setelah penyimpanan
+
+        return response()->json(['message' => 'Pengaturan berhasil disimpan'], 200);
     }
 
     /**

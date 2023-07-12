@@ -107,7 +107,8 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success px-4 float-right">SIMPAN</button>
-                    <button type="Update" class="btn btn-danger px-4 float-right mr-3">BATAL</button>
+                    <button type="Update" class="btn btn-danger px-4 float-right mr-3"
+                        onclick="window.history.go(-1);">BATAL</button>
                 </div>
             </div>
         </div>

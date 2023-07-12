@@ -81,7 +81,7 @@
         <div class="col">
             <div class="card bg-transparent shadow-none">
                 <div class="card-body">
-                    <h3 class="mt-0 mb-2"><i class="fa fa-bullhorn fs-1"></i> Keluhan dan Rekomendasi</h3>
+                    <h3 class="mt-0 mb-2"><i class="fa fa-bullhorn fs-1"></i> Keluhan dan Informasi</h3>
                     <div class="autohide-scroll" style="height: 500px;">
                         <div class="card">
                             <div class="card-body">
@@ -170,13 +170,13 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLongTitle">Jalan Berlubang</h4>
+                    <h4 class="modal-title ml-auto text-success" id="exampleModalLongTitle">Jalan Berlubang</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>Isi Pesan :</p>
+                <div class="modal-body ml-3 mb-3">
+                    <p class="mt-2">Isi Pesan :</p>
                     <h4>Siang Pak RT, jalan di Jln. Merak sudah rusak parah dan berlubang. Mohon segera di perbaiki.</h4>
                     <div class="row">
                         <div class="col-6">
@@ -189,7 +189,7 @@
                             <p>Penyebab kejadian :</p>
                             <h5>Dilalui kendaraan berat</h5>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 d-flax">
                             <p>Foto lokasi kejadian :</p>
                             <img src="{{ asset('image/jalan berlubang.jpg') }}" alt="" width="200px">
                         </div>

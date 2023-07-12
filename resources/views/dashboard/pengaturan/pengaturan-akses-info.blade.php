@@ -18,116 +18,159 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-body">
+                    <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" ;
+                        style="display: none !important;" role="alert" id="success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <i class="mdi mdi-check-circle mr-2"></i>Pengaturan Akses Informasi berhasil di update
+                    </div>
 
-                    {{-- Pertanyaan 1 --}}
+
+                    <!-- Pertanyaan 1 -->
                     <div class="ml-3">
-                        <p>1.&nbsp;&nbsp;Yang boleh melihat profil detail saya</p>
+                        <p style="margin: 0;">1.&nbsp;&nbsp;Yang boleh melihat profil detail Saya</p>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" data-parsley-multiple="groups"
-                                data-parsley-mincheck="1" style="width: 15px; height: 15px;">
-                            <label for="checkbox1">Semua Pengguna</label>
+                            <input type="checkbox" id="checkbox11" data-pertanyaan="Yang boleh melihat profil detail Saya"
+                                name="pertanyaan1" value="Semua Pengguna" class="pertanyaan1"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail Saya'])) {{ $data['Yang boleh melihat profil detail Saya'] === 'Semua Pengguna' ? 'checked' : '' }} @endif>
+                            <label for="checkbox11">Semua Pengguna</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" data-parsley-multiple="groups"
-                                data-parsley-mincheck="2" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Semua warga di komunitas saya
-                                bergabung</label>
+                            <input type="checkbox" id="checkbox12" data-pertanyaan="Yang boleh melihat profil detail Saya"
+                                name="pertanyaan1" value="Semua warga di komunitas saya bergabung" class="pertanyaan1"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail Saya'])) {{ $data['Yang boleh melihat profil detail Saya'] === 'Semua warga di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox12">Semua warga di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" data-parsley-multiple="groups"
-                                data-parsley-mincheck="3" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Pengurus di komunitas saya bergabung</label>
+                            <input type="checkbox" id="checkbox13" data-pertanyaan="Yang boleh melihat profil detail Saya"
+                                name="pertanyaan1" value="Pengurus di komunitas saya bergabung" class="pertanyaan1"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail Saya'])) {{ $data['Yang boleh melihat profil detail Saya'] === 'Pengurus di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox13">Pengurus di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3 mb-2">
-                            <input type="checkbox" id="checkbox4" name="checkbox4" data-parsley-multiple="groups"
-                                data-parsley-mincheck="4" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Tidak ada</label>
+                            <input type="checkbox" id="checkbox14" data-pertanyaan="Yang boleh melihat profil detail Saya"
+                                name="pertanyaan1" value="Tidak ada" class="pertanyaan1" style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail Saya'])) {{ $data['Yang boleh melihat profil detail Saya'] === 'Tidak ada' ? 'checked' : '' }} @endif>
+                            <label for="checkbox14">Tidak ada</label>
                         </div>
                     </div>
 
                     {{-- Pertanyaan 2 --}}
                     <div class="ml-3">
-                        <p>2.&nbsp;&nbsp;Yang boleh melihat profil umum keluarga saya</p>
+                        <p style="margin: 0;">2.&nbsp;&nbsp;Yang boleh melihat profil umum keluarga Saya</p>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" data-parsley-multiple="groups"
-                                data-parsley-mincheck="1" style="width: 15px; height: 15px;">
-                            <label for="checkbox1">Semua Pengguna</label>
+                            <input type="checkbox" id="checkbox21"
+                                data-pertanyaan="Yang boleh melihat profil umum keluarga Saya" name="pertanyaan2"
+                                value="Semua Pengguna" class="pertanyaan2" style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil umum keluarga Saya'])) {{ $data['Yang boleh melihat profil umum keluarga Saya'] === 'Semua Pengguna' ? 'checked' : '' }} @endif>
+                            <label for="checkbox21">Semua Pengguna</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" data-parsley-multiple="groups"
-                                data-parsley-mincheck="2" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Semua warga di komunitas saya
-                                bergabung</label>
+                            <input type="checkbox" id="checkbox22"
+                                data-pertanyaan="Yang boleh melihat profil umum keluarga Saya" name="pertanyaan2"
+                                value="Semua warga di komunitas saya bergabung" class="pertanyaan2"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil umum keluarga Saya'])) {{ $data['Yang boleh melihat profil umum keluarga Saya'] === 'Semua warga di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox22">Semua warga di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" data-parsley-multiple="groups"
-                                data-parsley-mincheck="3" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Pengurus di komunitas saya bergabung</label>
+                            <input type="checkbox" id="checkbox23"
+                                data-pertanyaan="Yang boleh melihat profil umum keluarga Saya" name="pertanyaan2"
+                                value="Pengurus di komunitas saya bergabung" class="pertanyaan2"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil umum keluarga Saya'])) {{ $data['Yang boleh melihat profil umum keluarga Saya'] === 'Pengurus di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox23">Pengurus di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3 mb-2">
-                            <input type="checkbox" id="checkbox4" name="checkbox4" data-parsley-multiple="groups"
-                                data-parsley-mincheck="4" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Tidak ada</label>
+                            <input type="checkbox" id="checkbox24"
+                                data-pertanyaan="Yang boleh melihat profil umum keluarga Saya" name="pertanyaan2"
+                                value="Tidak ada" class="pertanyaan2" style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil umum keluarga Saya'])) {{ $data['Yang boleh melihat profil umum keluarga Saya'] === 'Tidak ada' ? 'checked' : '' }} @endif>
+                            <label for="checkbox24">Tidak ada</label>
                         </div>
                     </div>
 
                     {{-- Pertanyaan 3 --}}
                     <div class="ml-3">
-                        <p>3.&nbsp;&nbsp;Yang boleh melihat profil detail keluarga saya</p>
+                        <p style="margin: 0;">3.&nbsp;&nbsp;Yang boleh melihat profil detail keluarga Saya</p>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" data-parsley-multiple="groups"
-                                data-parsley-mincheck="1" style="width: 15px; height: 15px;">
-                            <label for="checkbox1">Semua Pengguna</label>
+                            <input type="checkbox" id="checkbox31"
+                                data-pertanyaan="Yang boleh melihat profil detail keluarga Saya" name="pertanyaan3"
+                                value="Semua Pengguna" class="pertanyaan3" style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail keluarga Saya'])) {{ $data['Yang boleh melihat profil detail keluarga Saya'] === 'Semua Pengguna' ? 'checked' : '' }} @endif>
+                            <label for="checkbox31">Semua Pengguna</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" data-parsley-multiple="groups"
-                                data-parsley-mincheck="2" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Semua warga di komunitas saya
-                                bergabung</label>
+                            <input type="checkbox" id="checkbox32"
+                                data-pertanyaan="Yang boleh melihat profil detail keluarga Saya" name="pertanyaan3"
+                                value="Semua warga di komunitas saya bergabung" class="pertanyaan3"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail keluarga Saya'])) {{ $data['Yang boleh melihat profil detail keluarga Saya'] === 'Semua warga di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox32">Semua warga di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" data-parsley-multiple="groups"
-                                data-parsley-mincheck="3" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Pengurus di komunitas saya bergabung</label>
+                            <input type="checkbox" id="checkbox33"
+                                data-pertanyaan="Yang boleh melihat profil detail keluarga Saya" name="pertanyaan3"
+                                value="Pengurus di komunitas saya bergabung" class="pertanyaan3"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail keluarga Saya'])) {{ $data['Yang boleh melihat profil detail keluarga Saya'] === 'Pengurus di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox33">Pengurus di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3 mb-2">
-                            <input type="checkbox" id="checkbox4" name="checkbox4" data-parsley-multiple="groups"
-                                data-parsley-mincheck="4" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Tidak ada</label>
+                            <input type="checkbox" id="checkbox34"
+                                data-pertanyaan="Yang boleh melihat profil detail keluarga Saya" name="pertanyaan3"
+                                value="Tidak ada" class="pertanyaan3" style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat profil detail keluarga Saya'])) {{ $data['Yang boleh melihat profil detail keluarga Saya'] === 'Tidak ada' ? 'checked' : '' }} @endif>
+                            <label for="checkbox34">Tidak ada</label>
                         </div>
                     </div>
 
                     {{-- Pertanyaan 4 --}}
                     <div class="ml-3">
-                        <p>4.&nbsp;&nbsp;Yang boleh melihat komunitas dimana saya bergabung</p>
+                        <p style="margin: 0;">4.&nbsp;&nbsp;Yang boleh melihat komunitas dimana Saya bergabung</p>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" data-parsley-multiple="groups"
-                                data-parsley-mincheck="1" style="width: 15px; height: 15px;">
-                            <label for="checkbox1">Semua Pengguna</label>
+                            <input type="checkbox" id="checkbox41"
+                                data-pertanyaan="Yang boleh melihat komunitas dimana Saya bergabung"
+                                value="Semua Pengguna" name="pertanyaan4" class="pertanyaan4"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat komunitas dimana Saya bergabung'])) {{ $data['Yang boleh melihat komunitas dimana Saya bergabung'] === 'Semua Pengguna' ? 'checked' : '' }} @endif>
+                            <label for="checkbox41">Semua Pengguna</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" data-parsley-multiple="groups"
-                                data-parsley-mincheck="2" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Semua warga di komunitas saya
-                                bergabung</label>
+                            <input type="checkbox" id="checkbox42"
+                                data-pertanyaan="Yang boleh melihat komunitas dimana Saya bergabung"
+                                value="Semua warga di komunitas saya bergabung" name="pertanyaan4" class="pertanyaan4"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat komunitas dimana Saya bergabung'])) {{ $data['Yang boleh melihat komunitas dimana Saya bergabung'] === 'Semua warga di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox42">Semua warga di komunitas saya bergabung</label>
                         </div>
                         <div class="ml-3">
-                            <input type="checkbox" id="checkbox3" name="checkbox3" data-parsley-multiple="groups"
-                                data-parsley-mincheck="3" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Pengurus di komunitas saya bergabung</label>
+                            <input type="checkbox" id="checkbox43"
+                                data-pertanyaan="Yang boleh melihat komunitas dimana Saya bergabung"
+                                value="Pengurus di komunitas saya bergabung" name="pertanyaan4" class="pertanyaan4"
+                                style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat komunitas dimana Saya bergabung'])) {{ $data['Yang boleh melihat komunitas dimana Saya bergabung'] === 'Pengurus di komunitas saya bergabung' ? 'checked' : '' }} @endif>
+                            <label for="checkbox43">Pengurus di komunitas saya bergabung</label>
                         </div>
-                        <div class="ml-3 mb-2">
-                            <input type="checkbox" id="checkbox4" name="checkbox4" data-parsley-multiple="groups"
-                                data-parsley-mincheck="4" style="width: 15px; height: 15px;">
-                            <label for="checkbox2">Tidak ada</label>
+                        <div class="ml-3 mb-3">
+                            <input type="checkbox" id="checkbox44"
+                                data-pertanyaan="Yang boleh melihat komunitas dimana Saya bergabung" value="Tidak ada"
+                                name="pertanyaan4" class="pertanyaan4" style="width: 15px; height: 15px;"
+                                @if (isset($data['Yang boleh melihat komunitas dimana Saya bergabung'])) {{ $data['Yang boleh melihat komunitas dimana Saya bergabung'] === 'Tidak ada' ? 'checked' : '' }} @endif>
+                            <label for="checkbox44">Tidak ada</label>
                         </div>
                     </div>
 
                     <div>
-                        <span data-repeater-delete="" class="btn btn-success btn-sm mr-3">Simpan</span>
-                        <span data-repeater-delete="" class="btn btn-danger btn-sm">Batal</span>
+                        <button type="button" class="btn btn-danger btn-sm col-1 mr-2"
+                            onclick="window.location.href = '{{ route('pengaturan.index') }}'">Kembali</button>
+                        <button type="submit" class="btn btn-success btn-sm col-1"
+                            onclick="submitForm()">Simpan</button>
                     </div>
-
                 </div>
             </div>
         </div>

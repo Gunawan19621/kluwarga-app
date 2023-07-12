@@ -13,7 +13,7 @@ class KonfirmasiIuranController extends Controller
      */
     public function index()
     {
-        return view('dashboard.Komunitasku.konfirmasi-iuran');
+        // return view('dashboard.Komunitasku.konfirmasi-iuran');
     }
 
     /**

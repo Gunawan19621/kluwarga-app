@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('pengaturans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_web');
+            $table->string('email_web');
+            $table->string('kontak_web');
+            $table->mediumText('deskripsi_web');
+            $table->string('logo_web')->nullable();
+            $table->string('favicon')->nullable();
             $table->timestamps();
         });
     }

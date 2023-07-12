@@ -5,110 +5,131 @@
         <div class="col-12">
             <div class="card bg-transparent shadow-none">
                 <div class="card-body">
-                    <h4 class="text-success mt-0">Masukkan Detail Komunitasmu</h4>
+                    <h4 class="text-success mt-0">Masukkan Detail Komunitasmu jjj</h4>
                     <hr>
-                    <div class="row">
-                        <div class="col-8">
-                            <form>
+                    <form action="{{ route('buatkomunitas.actioncreate') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-8">
                                 <div class="form-group">
-                                    <label for="tipe-komunitas" class="col-form-label">Tipe Komunitas</label>
-                                    <select class="form-control" name="tipe-komunitas" type="text" id="tipe-komunitas"
-                                        value="{{ old('tipe-komunitas') }}">
-                                        <option>Pilih tipe komunitas</option>
-                                        <option>Tipe 1</option>
-                                        <option>Tipe 2</option>
-                                        <option>Tipe 3</option>
+                                    <label for="nama_komunitas" class="col-form-label">Nama Perumahan/Komunitas</label>
+                                    <input class="form-control" name="nama_komunitas" type="text" id="nama_komunitas"
+                                        value="{{ old('nama_komunitas') }}">
+                                    @error('nama_komunitas')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="moto_komunitas" class="col-form-label">Moto Komunitas</label>
+                                    <input class="form-control" name="moto_komunitas" type="text" id="moto_komunitas"
+                                        value="{{ old('moto_komunitas') }}">
+                                    @error('moto_komunitas')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <!-- foto Komunitas -->
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="logo_komunitas" class="col-form-label">Foto Komunitas</label>
+                                    <input class="form-control-file" name="logo_komunitas" type="file"
+                                        id="logo_komunitas">
+                                    @error('logo_komunitas')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <!-- End Foto Komunitas -->
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="alamat_komunitas" class="col-form-label">Alamat Komunitas</label>
+                                    <input class="form-control" name="alamat_komunitas" type="text" id="alamat_komunitas"
+                                        value="{{ old('alamat_komunitas') }}">
+                                    @error('alamat_komunitas')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="provinsi" class="col-form-label">Provinsi</label>
+                                    <select class="form-control" name="provinsi" type="text" id="provinsi"
+                                        value="{{ old('provinsi') }}">
+                                        <option>Pilih Provinsi Anda</option>
+                                        <option value="jawa barat">Jawab Barat</option>
+                                        <option>Provinsi 2</option>
+                                        <option>Provinsi 3</option>
                                     </select>
+                                    @error('provinsi')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama-perumahan" class="col-form-label">Nama Perumahan/Komunitas</label>
-                                    <input class="form-control" name="nama-perumahan" type="text" id="nama-perumahan"
-                                        value="{{ old('nama-perumahan') }}">
+                                    <label for="kecamatan" class="col-form-label">Kecamatan</label>
+                                    <select class="form-control" name="kecamatan" type="text" id="kecamatan"
+                                        value="{{ old('kecamatan') }}">
+                                        <option>Pilih Kecamatan Anda</option>
+                                        <option value="balongan">Balongan</option>
+                                        <option>Kecamatan 2</option>
+                                        <option>Kecamatan 3</option>
+                                    </select>
+                                    @error('kecamatan')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-4">
-                            <img src="{{ asset('image/jalan berlubang.jpg') }}" class="d-block mx-auto" alt=""
-                                width="150">
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="moto-komunitas" class="col-form-label">Moto Komunitas</label>
-                                <div class="">
-                                    <input class="form-control" name="moto-komunitas" type="text" id="moto-komunitas"
-                                        value="{{ old('moto-komunitas') }}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat" class="col-form-label">Alamat Komunitas</label>
-                                <div class="">
-                                    <input class="form-control" name="alamat" type="text" id="alamat"
-                                        value="{{ old('alamat') }}">
+                                <div class="form-group">
+                                    <label for="kode_pos" class="col-form-label">Kode Pos</label>
+                                    <input class="form-control" name="kode_pos" type="text" id="kode_pos"
+                                        value="{{ old('kode_pos') }}" maxlength="5" minlength="5"
+                                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+                                    @error('kode_pos')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="provinsi" class="col-form-label">Provinsi</label>
-                                <select class="form-control" name="provinsi" type="text" id="provinsi"
-                                    value="{{ old('kabupaten') }}">
-                                    <option>Pilih Provinsi Anda</option>
-                                    <option>Provinsi 1</option>
-                                    <option>Provinsi 2</option>
-                                    <option>Provinsi 3</option>
-                                </select>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="kabupaten" class="col-form-label">Kabupaten</label>
+                                    <select class="form-control" name="kabupaten" type="text" id="kabupaten"
+                                        value="{{ old('kabupaten') }}">
+                                        <option>Pilih Kabupaten Anda</option>
+                                        <option value="indramayu">Indramayu</option>
+                                        <option>Kabupaten 2</option>
+                                        <option>Kabupaten 3</option>
+                                    </select>
+                                    @error('kabupaten')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="desa" class="col-form-label">Kelurahan/Desa</label>
+                                    <select class="form-control" name="desa" type="text" id="desa"
+                                        value="{{ old('desa') }}">
+                                        <option>Pilih elurahan/Desa Anda</option>
+                                        <option value="gelarmandala">Gelarmendala</option>
+                                        <option>elurahan/Desa 2</option>
+                                        <option>elurahan/Desa 3</option>
+                                    </select>
+                                    @error('desa')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="kecamatan" class="col-form-label">Kecamatan</label>
-                                <select class="form-control" name="kecamatan" type="text" id="kecamatan"
-                                    value="{{ old('kecamatan') }}">
-                                    <option>Pilih Kecamatan Anda</option>
-                                    <option>Kecamatan 1</option>
-                                    <option>Kecamatan 2</option>
-                                    <option>Kecamatan 3</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="kode-pos" class="col-form-label">Kode Pos</label>
-                                <div class="">
-                                    <input class="form-control" name="kode-pos" type="text" id="kode-pos"
-                                        value="{{ old('kode-pos') }}">
+                            <div class="col-12">
+                                <hr>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success px-4 float-right">SIMPAN</button>
+                                    <button type="button" class="btn btn-danger px-4 float-right mr-3"
+                                        onclick="window.location.reload()">BATAL</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="kabupaten" class="col-form-label">Kabupaten</label>
-                                <select class="form-control" name="kabupaten" type="text" id="kabupaten"
-                                    value="{{ old('kabupaten') }}">
-                                    <option>Pilih Kabupaten Anda</option>
-                                    <option>Kabupaten 1</option>
-                                    <option>Kabupaten 2</option>
-                                    <option>Kabupaten 3</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="kelurahan/desa" class="col-form-label">Kelurahan/Desa</label>
-                                <select class="form-control" name="kelurahan/desa" type="text" id="kelurahan/desa"
-                                    value="{{ old('kelurahan/desa') }}">
-                                    <option>Pilih elurahan/Desa Anda</option>
-                                    <option>elurahan/Desa 1</option>
-                                    <option>elurahan/Desa 2</option>
-                                    <option>elurahan/Desa 3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <hr>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success px-4 float-right">SIMPAN</button>
-                                <button type="Update" class="btn btn-danger px-4 float-right mr-3">BATAL</button>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 {{-- Tabel RT, RW, Jalan, Blok --}}
-                <div class="card-body">
+                {{-- <div class="card-body">
                     <div class="row">
                         <div class="col-6 bg-light py-4">
                             <div class="form-group">
@@ -164,8 +185,8 @@
                                             <td>A</td>
                                             <td>12A</td>
                                             <td>
-                                                <a href="#" class=""><i class="fa fa-edit mr-2"
-                                                        style="font-size: 20px"></i></a>
+                                                <a href="#" data-toggle="modal" data-target="#editDataModal"><i
+                                                        class="fa fa-edit mr-2" style="font-size: 20px"></i></a>
                                                 <a href="#" class=""><i
                                                         class="fa fa-trash-o text-danger mr-2"
                                                         style="font-size: 20px"></i></a>
@@ -208,25 +229,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
     <!-- end row -->
     </div>
 
-    <!-- Modal Tambah Alamat-->
-    <div class="modal fade" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="popupModalLabel"
+    {{-- <!-- Modal Edit Data Rumah-->
+    <div class="modal fade" id="editDataModal" tabindex="-1" role="dialog" aria-labelledby="editDataModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLongTitle">Tambah Alamat Lengkap</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header d-flex justify-content-center">
+                    <h4 class="modal-title text-success">Edit Alamat Lengkap</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body m-2">
                     <div class="form-group">
                         <label for="rt" class="col-form-label">RT</label>
                         <div class="">
@@ -255,20 +273,76 @@
                                 value="{{ old('blok') }}">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-4">
                         <label for="kode" class="col-form-label">Kode</label>
                         <div class="">
                             <input class="form-control" name="kode" type="text" id="kode"
                                 value="{{ old('kode') }}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success px-4 float-right">SIMPAN</button>
-                    <button type="button" class="btn btn-danger waves-effect float-right mr-2" data-dismiss="modal">
+                    <button type="submit" class="btn btn-success px-3 float-right">SIMPAN</button>
+                    <button type="button" class="btn btn-danger waves-effect float-right mr-2 px-4"
+                        data-dismiss="modal">
                         Batal
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    {{-- End Modal Tambah Alamat --}}
+    <!-- End Modal Edit Data Rumah --> --}}
+
+    {{-- <!-- Modal Tambah Data Rumah-->
+    <div class="modal fade" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="popupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center">
+                    <h4 class="modal-title text-success">Tambah Alamat Lengkap</h4>
+                </div>
+                <div class="modal-body m-2">
+                    <div class="form-group">
+                        <label for="rt" class="col-form-label">RT</label>
+                        <div class="">
+                            <input class="form-control" name="rt" type="text" id="rt"
+                                value="{{ old('rt') }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rw" class="col-form-label">RW</label>
+                        <div class="">
+                            <input class="form-control" name="rw" type="text" id="rw"
+                                value="{{ old('rw') }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jalan" class="col-form-label">Jalan</label>
+                        <div class="">
+                            <input class="form-control" name="jalan" type="text" id="jalan"
+                                value="{{ old('jalan') }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blok" class="col-form-label">Blok</label>
+                        <div class="">
+                            <input class="form-control" name="blok" type="text" id="blok"
+                                value="{{ old('blok') }}">
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="kode" class="col-form-label">Kode</label>
+                        <div class="">
+                            <input class="form-control" name="kode" type="text" id="kode"
+                                value="{{ old('kode') }}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success px-3 float-right">SIMPAN</button>
+                    <button type="button" class="btn btn-danger waves-effect float-right mr-2 px-4"
+                        data-dismiss="modal">
+                        Batal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal Edit Data Rumah --> --}}
 @endsection

@@ -13,7 +13,8 @@ class ProfilKeluargaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.profil_keluarga.profil-k');
+        $profilKeluarga = ProfilKeluarga::latest()->get();
+        return view('dashboard.profil_keluarga.profil-k', compact('profilKeluarga'));
     }
 
     /**
@@ -21,7 +22,7 @@ class ProfilKeluargaController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.profil_keluarga.tambah-keluarga');
     }
 
     /**
@@ -29,7 +30,15 @@ class ProfilKeluargaController extends Controller
      */
     public function store(StoreProfilKeluargaRequest $request)
     {
-        //
+        $validated = $request->validated();
+        try {
+            $validated['pengguna_id'] = auth()->user()->id;
+            ProfilKeluarga::create($validated);
+
+            return to_route('profil-keluarga.index')->with('success', 'Data anggota keluarga berhasil ditambah.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Data anggota keluarga gagal ditambah.');
+        }
     }
 
     /**
